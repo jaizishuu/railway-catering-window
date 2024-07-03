@@ -1,0 +1,132 @@
+body {
+  font-family: Arial, sans-serif;
+}
+
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #003366;
+  padding: 10px 20px;
+  color: white;
+}
+
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
+
+.logo {
+  width: 50px;
+  margin-right: 10px;
+}
+
+
+.navbar-center {
+  text-align: center;
+}
+
+
+.navbar-center h1, .navbar-center h2 {
+  margin: 0;
+}
+
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+
+.navbar-right a, .navbar-right span {
+  margin-left: 10px;
+  color: white;
+  text-decoration: none;
+}
+
+
+.navbar-menu {
+  display: flex;
+  justify-content: center;
+  background-color: #0055A5;
+  padding: 10px 0;
+}
+
+
+.navbar-menu a {
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-right: 1px solid #004080;
+}
+
+
+.navbar-menu a:last-child {
+  border-right: none;
+}
+
+
+.navbar-menu a:hover {
+  background-color: #004080;
+}
+
+
+.main-container {
+  display: flex;
+}
+
+
+.sidebar {
+  width: 250px;
+  background-color: #0066CC;
+  padding: 10px;
+  color: white;
+}
+
+
+.sidebar h3 {
+  margin: 0;
+  padding: 10px 0;
+  border-bottom: 1px solid white;
+}
+
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+
+.sidebar ul li {
+  margin: 10px 0;
+}
+
+
+.sidebar ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+
+.sidebar ul li a:hover {
+  text-decoration: underline;
+}
+
+
+.content {
+  flex-grow: 1;
+  padding: 20px;
+}
+
+
+.container {
+  margin-bottom: 20px;
+}
+
+
+.title {
+  margin-bottom: 20px;
+}

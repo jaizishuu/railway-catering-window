@@ -1,0 +1,8 @@
+<div class="dropdown">
+  <div class="dropdown-menu">
+    <div *ngFor="let type of cateringTypes">
+      <label>
+        <input type="checkbox" [value]="type" (change)="onCheckboxChange($event, type)" [checked]="selectedOptions.includes(type)"> {{ type }}
+      </label>
+    </div>
+  </div>
