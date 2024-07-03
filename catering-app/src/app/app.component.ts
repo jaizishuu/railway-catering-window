@@ -1,7 +1,6 @@
+
 import { Component } from '@angular/core';
 import { CateringChargesComponent } from './catering-charges/catering-charges.component';
-
-
 
 
 @Component({

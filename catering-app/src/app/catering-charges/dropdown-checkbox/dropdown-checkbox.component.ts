@@ -3,8 +3,6 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 
-
-
 @Component({
   selector: 'app-dropdown-checkbox',
   standalone: true,
@@ -24,16 +22,10 @@ export class DropdownCheckboxComponent {
   ];
 
 
-
-
   selectedOptions: string[] = [];
 
 
-
-
   @Output() selectedChange = new EventEmitter<string[]>();
-
-
 
 
   onCheckboxChange(event: Event, option: string) {
@@ -45,8 +37,6 @@ export class DropdownCheckboxComponent {
     }
     this.selectedChange.emit(this.selectedOptions);
   }
-
-
 
 
   reset() {

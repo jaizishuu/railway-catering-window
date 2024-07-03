@@ -38,66 +38,35 @@
     <!-- Charges input fields if user selects "Feed Charges Manually" -->
     <div *ngIf="charges === 'manual'">
       <table>
-        <thead>
-          <tr>
-            <th>Option</th>
-            <th>Select</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Enter separately for each type</td>
-            <td>
-              <input type="radio" name="chargesType" value="separate" [(ngModel)]="chargesType">
-            </td>
-          </tr>
-          <tr>
-            <td>Enter overall charges</td>
-            <td>
-              <input type="radio" name="chargesType" value="overall" [(ngModel)]="chargesType">
-            </td>
-          </tr>
-        </tbody>
+        <tr>
+          <td>
+            <label>
+              <input type="radio" name="chargesType" value="separate" [(ngModel)]="chargesType"> Enter separately for each type
+            </label>
+          </td>
+          <td>
+            <label>
+              <input type="radio" name="chargesType" value="overall" [(ngModel)]="chargesType"> Enter overall charges
+            </label>
+          </td>
+        </tr>
       </table>
-      <div *ngIf="chargesType === 'separate'">
-        <h3>Enter Charges Separately</h3>
-        <table>
-          <thead>
-            <tr>
-              <th>Catering Type</th>
-              <th>Charge</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let type of selectedCateringType">
-              <td>{{ type }}</td>
-              <td><input type="number" [(ngModel)]="separateCharges[type]" name="{{ type }}Charges"></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div *ngIf="chargesType === 'overall'">
-        <h3>Enter Overall Charges</h3>
-        <table>
-          <thead>
-            <tr>
-              <th>Overall Charges</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                <input type="number" name="overallCharges" ngModel>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      <table *ngIf="chargesType === 'separate'">
+        <tr *ngFor="let type of selectedCateringType">
+          <td>{{ type }}:</td>
+          <td><input type="number" [(ngModel)]="separateCharges[type]" name="{{ type }}Charges"></td>
+        </tr>
+      </table>
+      <table *ngIf="chargesType === 'overall'">
+        <tr>
+          <td>Overall Charges:</td>
+          <td><input type="number" name="overallCharges" ngModel></td>
+        </tr>
+      </table>
     </div>
-    <!-- Auto Populated Charges Table -->
+    <!-- Auto Populated Charges table -->
     <div *ngIf="charges === 'auto'">
-      <h3>Auto Populated Charges</h3>
-      <table>
+      <table border="1">
         <thead>
           <tr>
             <th>FROM STN</th>
@@ -116,20 +85,20 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let charge of autoPopulatedCharges">
-            <td>{{ charge.from }}</td>
-            <td>{{ charge.to }}</td>
-            <td>{{ charge.class }}</td>
-            <td>{{ charge.validFrom }}</td>
-            <td>{{ charge.validUpto }}</td>
-            <td>{{ charge.morningTeaCoffee }}</td>
-            <td>{{ charge.breakfast }}</td>
-            <td>{{ charge.lunch }}</td>
-            <td>{{ charge.snacks }}</td>
-            <td>{{ charge.dinner }}</td>
-            <td>{{ charge.iceCream }}</td>
-            <td>{{ charge.waterBottle }}</td>
-            <td>{{ charge.gst }}</td>
+          <tr *ngFor="let row of autoPopulatedCharges">
+            <td>{{ row.fromStn }}</td>
+            <td>{{ row.toStn }}</td>
+            <td>{{ row.class }}</td>
+            <td>{{ row.validFromDate }}</td>
+            <td>{{ row.validUptoDate }}</td>
+            <td>{{ row.morningTeaCoffee }}</td>
+            <td>{{ row.breakfast }}</td>
+            <td>{{ row.lunch }}</td>
+            <td>{{ row.snacks }}</td>
+            <td>{{ row.dinner }}</td>
+            <td>{{ row.iceCream }}</td>
+            <td>{{ row.waterBottle }}</td>
+            <td>{{ row.gst }}</td>
           </tr>
         </tbody>
       </table>
@@ -137,7 +106,8 @@
     <button type="submit">SUBMIT</button>
   </form>
   <!-- Display selected catering types -->
-  <div>
+  <div *ngIf="selectedCateringType.length > 0">
+    <h3>Selected Catering Types</h3>
     <ul>
       <li *ngFor="let type of selectedCateringType">{{ type }}</li>
     </ul>
